@@ -1,13 +1,16 @@
 -- ==============================================================================
--- FINTECH FLAGSHIP CORE PLATFORM STRUCTURE (DDL)
+-- CLEAN PLUMBING OVERHAUL 
 -- ==============================================================================
-DROP TABLE IF EXISTS settlements;
-DROP TABLE IF EXISTS webhooks;
-DROP TABLE IF EXISTS fraud_holds;
-DROP TABLE IF EXISTS transactions;
-DROP TABLE IF EXISTS terminals;
-DROP TABLE IF EXISTS merchants;
+DROP TABLE IF EXISTS settlements CASCADE;
+DROP TABLE IF EXISTS webhooks CASCADE;
+DROP TABLE IF EXISTS fraud_holds CASCADE;
+DROP TABLE IF EXISTS transactions CASCADE;
+DROP TABLE IF EXISTS terminals CASCADE;
+DROP TABLE IF EXISTS merchants CASCADE;
 
+-- ==============================================================================
+-- 1. MASTER MERCHANT TABLE
+-- ==============================================================================
 CREATE TABLE merchants (
     merchant_id INT PRIMARY KEY,
     business_name VARCHAR(100) NOT NULL UNIQUE,
@@ -17,6 +20,9 @@ CREATE TABLE merchants (
     settlement_currency VARCHAR(3) DEFAULT 'INR'
 );
 
+-- ==============================================================================
+-- 2. HARDWARE / DIGITAL TERMINALS TABLE
+-- ==============================================================================
 CREATE TABLE terminals (
     terminal_id VARCHAR(50) PRIMARY KEY,
     merchant_id INT NOT NULL,
@@ -26,6 +32,9 @@ CREATE TABLE terminals (
     CONSTRAINT fk_terminals_merchant FOREIGN KEY (merchant_id) REFERENCES merchants(merchant_id) ON DELETE CASCADE
 );
 
+-- ==============================================================================
+-- 3. CORE TRANSACTIONS TABLE
+-- ==============================================================================
 CREATE TABLE transactions (
     transaction_id VARCHAR(50) PRIMARY KEY,
     merchant_id INT NOT NULL,
@@ -35,9 +44,12 @@ CREATE TABLE transactions (
     execution_time TIMESTAMP NOT NULL,
     routing_status VARCHAR(20) NOT NULL CHECK (routing_status IN ('Success', 'Failed', 'Suspicious_Hold')),
     CONSTRAINT fk_txn_merchant FOREIGN KEY (merchant_id) REFERENCES merchants(merchant_id) ON DELETE CASCADE,
-    CONSTRAINT fk_txn_terminal FOREIGN KEY (terminal_id) REFERENCES terminals(terminal_id)
+    CONSTRAINT fk_txn_terminal FOREIGN KEY (terminal_id) REFERENCES terminals(terminal_id) ON DELETE CASCADE
 );
 
+-- ==============================================================================
+-- 4. REAL-TIME FRAUD RISKS TABLE
+-- ==============================================================================
 CREATE TABLE fraud_holds (
     hold_id INT PRIMARY KEY,
     transaction_id VARCHAR(50) NOT NULL UNIQUE,
@@ -47,6 +59,9 @@ CREATE TABLE fraud_holds (
     CONSTRAINT fk_holds_txn FOREIGN KEY (transaction_id) REFERENCES transactions(transaction_id) ON DELETE CASCADE
 );
 
+-- ==============================================================================
+-- 5. ASYNC NOTIFICATION WEBHOOKS TABLE
+-- ==============================================================================
 CREATE TABLE webhooks (
     webhook_id VARCHAR(50) PRIMARY KEY,
     transaction_id VARCHAR(50) NOT NULL,
@@ -56,6 +71,9 @@ CREATE TABLE webhooks (
     CONSTRAINT fk_webhooks_txn FOREIGN KEY (transaction_id) REFERENCES transactions(transaction_id) ON DELETE CASCADE
 );
 
+-- ==============================================================================
+-- 6. SETTLEMENT BANK CLEARINGS TABLE
+-- ==============================================================================
 CREATE TABLE settlements (
     settlement_id INT PRIMARY KEY,
     merchant_id INT NOT NULL,
@@ -63,5 +81,5 @@ CREATE TABLE settlements (
     net_payout DECIMAL(15,2) NOT NULL,
     payout_status VARCHAR(20) NOT NULL CHECK (payout_status IN ('Settled_Cleared', 'In_Transit', 'Frozen_Suspended')),
     utr_code VARCHAR(50) NULL,
-    CONSTRAINT fk_settlements_merchant FOREIGN KEY (merchant_id) REFERENCES merchants(merchant_id) ON DELETE CASCADE
+    CONSTRAINT fk_settlements_merchant FOREIGN KEY (merchant_id) REFERENCES merchants(merchant_id) ON DELETE CASCADE 
 );
