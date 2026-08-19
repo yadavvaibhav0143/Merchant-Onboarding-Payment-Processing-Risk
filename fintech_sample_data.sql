@@ -14,7 +14,7 @@ INSERT INTO merchants (merchant_id, business_name, industry_type, kyc_status, ac
 (305, 'Hinjewadi Tech Solutions', 'SaaS', 'Rejected', 'Meta_Ads', 'INR');
 
 -- 3. Provisioning Production Active Processing Terminals 
-INSERT INTO terminals (terminal_id, merchant_id, environment, secret_api_key, is_active) VALUES
+INSERT INTO terminals (terminal_id, merchant_id, environment, api_secret_key, is_active) VALUES
 ('TERM-PUN-001', 301, 'Production_Live', 'sec_key_live_9921a4f', 1),
 ('TERM-PUN-003', 302, 'Production_Live', 'sec_key_live_5543c2x', 1),
 ('TERM-PUN-004', 304, 'Production_Live', 'sec_key_live_8832a1z', 1);
@@ -36,7 +36,7 @@ INSERT INTO fraud_holds (hold_id, transaction_id, risk_score, trigger_reason, re
 (501, 'TXN-FIN-006', 92, 'Velocity threshold spike matching sweep patterns', 'Under_Review');
 
 -- 6. Recording Transaction Notification Logs
-INSERT INTO webhooks (webhook_id, transaction_id, delivered_timestamp, response_code, retry_count) VALUES
+INSERT INTO webhooks (webhook_id, transaction_id, dispatch_time, response_code, retry_count) VALUES
 ('WH-PUN-001', 'TXN-FIN-001', '2026-01-15 10:00:05', 200, 1),
 ('WH-PUN-002', 'TXN-FIN-002', '2026-02-18 11:00:04', 200, 1),
 ('WH-PUN-003', 'TXN-FIN-003', '2026-03-10 14:00:02', 200, 1),
@@ -48,7 +48,7 @@ INSERT INTO webhooks (webhook_id, transaction_id, delivered_timestamp, response_
 ('WH-PUN-009', 'TXN-FIN-009', '2026-07-11 10:15:03', 200, 1);
 
 -- 7. Logging Bank Automated Outbound Transfers
-INSERT INTO settlements (settlement_id, merchant_id, settlement_date, net_amount_settled, settlement_status, utr_reference) VALUES
+INSERT INTO settlements (settlement_id, merchant_id, clearing_date, net_amount_settled, settlement_status, utr_reference) VALUES
 (80001, 301, '2026-01-16', 44100.00, 'Settled_Cleared', 'UTR-NEFT-RBI001A'),
 (80002, 301, '2026-02-19', 63700.00, 'Settled_Cleared', 'UTR-NEFT-RBI002B'),
 (80003, 302, '2026-03-11', 83300.00, 'Settled_Cleared', 'UTR-NEFT-RBI003C'),
