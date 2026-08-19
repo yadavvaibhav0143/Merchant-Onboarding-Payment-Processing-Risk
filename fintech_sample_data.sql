@@ -36,7 +36,7 @@ INSERT INTO fraud_holds (hold_id, transaction_id, risk_score, trigger_reason, re
 (501, 'TXN-FIN-006', 92, 'Velocity threshold spike matching sweep patterns', 'Under_Review');
 
 -- 6. Recording Transaction Notification Logs
-INSERT INTO webhooks (webhook_id, transaction_id, dispatch_time, response_code, retry_count) VALUES
+INSERT INTO webhooks (webhook_id, transaction_id, dispatch_time, http_status_code, retry_count) VALUES
 ('WH-PUN-001', 'TXN-FIN-001', '2026-01-15 10:00:05', 200, 1),
 ('WH-PUN-002', 'TXN-FIN-002', '2026-02-18 11:00:04', 200, 1),
 ('WH-PUN-003', 'TXN-FIN-003', '2026-03-10 14:00:02', 200, 1),
@@ -47,8 +47,9 @@ INSERT INTO webhooks (webhook_id, transaction_id, dispatch_time, response_code, 
 ('WH-PUN-008', 'TXN-FIN-008', '2026-07-04 13:20:04', 200, 1),
 ('WH-PUN-009', 'TXN-FIN-009', '2026-07-11 10:15:03', 200, 1);
 
+
 -- 7. Logging Bank Automated Outbound Transfers
-INSERT INTO settlements (settlement_id, merchant_id, clearing_date, net_amount_settled, settlement_status, utr_reference) VALUES
+INSERT INTO settlements (settlement_id, merchant_id, clearing_date, net_payout, payout_status, utr_code) VALUES
 (80001, 301, '2026-01-16', 44100.00, 'Settled_Cleared', 'UTR-NEFT-RBI001A'),
 (80002, 301, '2026-02-19', 63700.00, 'Settled_Cleared', 'UTR-NEFT-RBI002B'),
 (80003, 302, '2026-03-11', 83300.00, 'Settled_Cleared', 'UTR-NEFT-RBI003C'),
