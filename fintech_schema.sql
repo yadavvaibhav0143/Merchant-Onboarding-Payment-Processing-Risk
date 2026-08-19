@@ -32,6 +32,7 @@ CREATE TABLE terminals (
     CONSTRAINT fk_terminals_merchant FOREIGN KEY (merchant_id) REFERENCES merchants(merchant_id) ON DELETE CASCADE
 );
 
+
 -- ==============================================================================
 -- 3. CORE TRANSACTIONS TABLE
 -- ==============================================================================
