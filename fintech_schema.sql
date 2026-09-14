@@ -84,3 +84,16 @@ CREATE TABLE settlements (
     utr_code VARCHAR(50) NULL,
     CONSTRAINT fk_settlements_merchant FOREIGN KEY (merchant_id) REFERENCES merchants(merchant_id) ON DELETE CASCADE 
 );
+
+-- ==============================================================================
+-- 7. settlement_detail
+-- ==============================================================================
+
+CREATE TABLE settlement_detail (
+    settlement_detail_id INT PRIMARY KEY,
+    settlement_id INT NOT NULL,
+    transaction_id INT NOT NULL,
+    settlement_amount DECIMAL(15,2) NOT NULL,
+FOREIGN KEY (settlement_id) REFERENCES settlements(settlement_id),
+FOREIGN KEY (transaction_id) REFERENCES transactions(transaction_id)
+);
