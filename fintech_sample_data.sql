@@ -58,3 +58,15 @@ INSERT INTO settlements (settlement_id, merchant_id, clearing_date, net_payout, 
 (80006, 302, '2026-06-13', 0.00, 'Frozen_Suspended', NULL),
 (80007, 304, '2026-07-05', 191100.00, 'In_Transit', NULL),
 (80008, 301, '2026-07-12', 215600.00, 'In_Transit', NULL);
+
+-- 8. Mapping Eligible Transactions to Settlement Cycles
+INSERT INTO settlement_detail
+(settlement_detail_id, settlement_id, transaction_id, settlement_amount)
+VALUES
+(1,80001,'TXN-FIN-001',44100.00),
+(2,80002,'TXN-FIN-002',63700.00),
+(3,80003,'TXN-FIN-003',83300.00),
+(4,80004,'TXN-FIN-004',107800.00),
+(5,80005,'TXN-FIN-005',127400.00),
+(6,80007,'TXN-FIN-008',191100.00),
+(7,80008,'TXN-FIN-009',215600.00);
