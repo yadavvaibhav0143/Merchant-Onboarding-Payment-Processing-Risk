@@ -99,7 +99,7 @@ SQL analytics, execution evidence, and dashboard output:
 
 ### Merchant Operations Dashboard
 
-![Merchant Operations Dashboard](./Tableau_Dashboard.png)
+![Merchant Operations Dashboard](./Fin_Dash.png)
 
 ## What This Project Demonstrates
 
