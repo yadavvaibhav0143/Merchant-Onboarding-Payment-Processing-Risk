@@ -85,7 +85,7 @@ The proposed solution is designed to:
 The repository contains the core business analysis documentation, data model,
 SQL analytics, execution evidence, and dashboard output:
 
-- [Business Analysis & Solution Design](./Merchant_Onboarding_PaymentProcessing_Risk.pdf)
+- [Business Analysis & Solution Design](./Merchant_Onboarding_PaymentProcessing%20_%26%20_Risk.doc%20%281%29%20%281%29.pdf)
 - [PostgreSQL Schema](./schema.sql)
 - [Sample Dataset](./sample_data.sql)
 - [SQL Analytics Queries](./fintech_queries.sql)
