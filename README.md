@@ -86,11 +86,14 @@ The repository contains the core business analysis documentation, data model,
 SQL analytics, execution evidence, and dashboard output:
 
 - [Business Analysis & Solution Design](./Merchant_Onboarding_PaymentProcessing%20_%26%20_Risk.doc%20%281%29%20%281%29.pdf)
-- [PostgreSQL Schema](./schema.sql)
-- [Sample Dataset](./sample_data.sql)
+- [Business Analysis Presentation](./Merchant_Onboarding_BA.ppt..pdf)
+- [PostgreSQL Schema](./fintech_schema.sql)
+- [Sample Dataset](./Fin_Dataset.xlsx)
+- [SQL Sample Data Script](./fintech_sample_data.sql)
 - [SQL Analytics Queries](./fintech_queries.sql)
-- [SQL Execution Results](./sql-query-execution-results.png)
-- [Tableau Dashboard](./Tableau_Dashboard.png)
+- [SQL Execution Results — Query 1](./Fin_query1.png)
+- [SQL Execution Results — Query 2](./Fin_query2.png)
+- [Tableau Dashboard](./Fin_Dash.png)
 
 ## Preview
 
