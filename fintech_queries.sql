@@ -31,8 +31,8 @@ FROM merchants
 GROUP BY kyc_status;
 
 
--- [QUERY 03]: TRANSACTION SUCCESS RATE
--- Purpose: Quantifies the volume processing share split across platform routing states.
+-- [QUERY 03]: TRANSACTION STATUS DISTRIBUTION
+-- Purpose: Measures transaction volume and value distribution across routing statuses.
 SELECT 
     routing_status,
     COUNT(transaction_id) AS transaction_count,
