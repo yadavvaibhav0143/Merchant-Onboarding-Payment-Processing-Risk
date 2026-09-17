@@ -128,7 +128,7 @@ Lucidchart · Figma
 PostgreSQL · SQL · Tableau
 
 **Technical Specification:**  
-REST APIs · JSON · Postman
+REST APIs · JSON
 
 **Agile & Delivery:**  
 Jira · Confluence
