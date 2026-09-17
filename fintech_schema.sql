@@ -92,7 +92,7 @@ CREATE TABLE settlements (
 CREATE TABLE settlement_detail (
     settlement_detail_id INT PRIMARY KEY,
     settlement_id INT NOT NULL,
-    transaction_id INT NOT NULL,
+    transaction_id VARCHAR(50) NOT NULL,
     settlement_amount DECIMAL(15,2) NOT NULL,
 FOREIGN KEY (settlement_id) REFERENCES settlements(settlement_id),
 FOREIGN KEY (transaction_id) REFERENCES transactions(transaction_id)
