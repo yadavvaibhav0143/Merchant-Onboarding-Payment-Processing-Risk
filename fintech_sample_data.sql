@@ -3,7 +3,7 @@
 -- ==============================================================================
 
 -- 1. Clear existing records to ensure a fresh, clean execution run
-TRUNCATE webhooks, fraud_holds, settlements, transactions, terminals, merchants RESTART IDENTITY CASCADE;
+TRUNCATE settlement_detail, webhooks, fraud_holds, settlements, transactions, terminals, merchants RESTART IDENTITY CASCADE;
 
 -- 2. Populating Master Merchant Profiles 
 INSERT INTO merchants (merchant_id, business_name, industry_type, kyc_status, acquisition_channel, settlement_currency) VALUES
