@@ -1,89 +1,131 @@
-# FinTech Merchant Onboarding & Payment Processing Platform
+# Merchant Onboarding & Payment Processing — Business Analysis & Solution Design
+
+**FinTech | Merchant Onboarding | Payment Processing | Risk & Settlement Operations**
 
 ## Overview
 
-This project showcases an end-to-end Business Analysis case study for a FinTech Merchant Acquiring Platform. The solution focuses on streamlining merchant onboarding, automating KYC verification, enabling secure payment processing, strengthening fraud management, and improving settlement operations through structured business analysis, system design, and data analytics.
+An independent Business Analysis case study focused on designing an integrated
+merchant onboarding, payment processing, fraud management, and settlement
+workflow.
 
-The project demonstrates the complete Business Analysis lifecycle, from business requirements to solution design, SQL analytics, and executive reporting.
+The objective was to replace fragmented operational processes with a more
+structured workflow covering merchant verification, terminal activation,
+transaction processing, fraud assessment, settlement, and operational
+analytics.
 
----
+## My Role
 
-## Business Problem
+**Independent Business Analyst**
 
-Traditional merchant onboarding and payment operations rely on manual verification, fragmented workflows, and delayed settlement processes. These challenges result in operational inefficiencies, compliance risks, slower merchant activation, and limited business visibility.
+I worked across the requirements lifecycle — from business problem analysis
+and process mapping through functional requirements, business rules, solution
+architecture, data modelling, API specifications, user stories, UAT, and
+analytics.
 
----
+## The Problem
 
-## Proposed Solution
+The existing process involved:
 
-The proposed platform enables:
+- Manual merchant onboarding and KYC verification
+- Delays in terminal provisioning and merchant activation
+- Fragmented payment and fraud monitoring workflows
+- Settlement delays and limited reconciliation visibility
+- Limited centralized operational reporting
 
-- Automated Merchant Onboarding
-- Digital KYC Verification
-- Payment Processing
-- Fraud Detection & Risk Management
-- Settlement Processing
-- Executive Reporting & Analytics
+## What I Designed
 
----
+The case study designs an integrated merchant operations platform covering
+merchant registration, KYC verification, terminal provisioning, payment
+processing, fraud assessment, settlement, and operational reporting.
 
-## Key Deliverables
+The solution also considers integrations with external KYC, payment gateway,
+tax, banking, and notification services.
 
-- Business Requirements Document (BRD)
-- Functional & Non-Functional Requirements
-- Business Rules
-- AS-IS & TO-BE Process Flows
-- System Architecture
-- Entity Relationship Diagram (ERD)
-- REST API Contracts
-- Low-Fidelity Wireframes
-- Agile User Stories
-- Gherkin Acceptance Criteria
-- UAT Test Scenarios
-- PostgreSQL Database Schema
-- SQL Analytics
-- Tableau Dashboard
+## Key BA Work
 
----
+- AS-IS and TO-BE process analysis
+- Stakeholder analysis
+- BRD and Functional Requirements
+- 20 Business Rules
+- Functional Solution Architecture
+- 7-entity ERD and Data Dictionary
+- 7 REST API Contracts
+- 10 Agile User Stories with Gherkin Acceptance Criteria
+- UAT and Requirements Traceability Matrix (RTM)
 
-## Technology Stack
+## Data & Analytics
 
-- PostgreSQL
-- SQL
-- Tableau Public
-- Figma
-- PowerPoint
-- GitHub
+The project includes a focused **PostgreSQL** analytics model built from
+sample merchant and transaction data.
 
----
+The analysis covers monthly net revenue, merchant onboarding status,
+transaction status distribution, fraud risk alerts, settlement status,
+merchant processing volume, industry-level transaction analysis, and
+processing fee analysis.
 
-## Repository Structure
+> **Note:** The SQL analysis uses illustrative sample data and is intended to
+> demonstrate business analytics and SQL capability. The results are not
+> production measurements.
 
-```
-├── schema.sql
-├── sample_data.sql
-├── fintech_queries.sql
-├── Tableau_Dashboard.png
-├── DB_Fiddle_Screenshots/
-├── Business_Analysis_Document.pdf
-└── README.md
-```
+## Outcome
 
----
+The proposed solution is designed to:
 
-## Business Outcomes
+- Reduce manual effort across merchant onboarding and operations
+- Improve merchant activation and KYC process visibility
+- Strengthen fraud review and settlement controls
+- Improve settlement monitoring and operational visibility
+- Provide centralized business analytics for operational decision-making
 
-- Reduced manual onboarding effort
-- Improved KYC compliance
-- Faster merchant activation
-- Enhanced fraud visibility
-- Streamlined settlement process
-- Executive operational reporting
+> **Note:** These are expected outcomes of the independent case study, not
+> measured production results.
 
----
+## Repository
 
-## Author
+The repository contains the core business analysis documentation, data model,
+SQL analytics, execution evidence, and dashboard output:
 
-**Vaibhav Yadav**
+- [Business Analysis & Solution Design](./Merchant_Onboarding_PaymentProcessing_Risk.pdf)
+- [PostgreSQL Schema](./schema.sql)
+- [Sample Dataset](./sample_data.sql)
+- [SQL Analytics Queries](./fintech_queries.sql)
+- [SQL Execution Results](./sql-query-execution-results.png)
+- [Tableau Dashboard](./Tableau_Dashboard.png)
 
-Business Analysis | Product Strategy | Portfolio Case Study
+## Preview
+
+### Merchant Operations Dashboard
+
+![Merchant Operations Dashboard](./Tableau_Dashboard.png)
+
+## What This Project Demonstrates
+
+**Business Analysis → Process Design → Requirements → Solution Design →
+Technical Specification → UAT → Data & Analytics**
+
+- End-to-end requirements lifecycle
+- Merchant and payment operations process analysis
+- Functional and technical requirements
+- Business rules and solution design
+- Data modelling and SQL analysis
+- REST API specification
+- Agile user-story development
+- UAT and requirements traceability
+- Translating operational problems into measurable business outcomes
+
+## Tools & Technologies
+
+**Business Analysis & Documentation:**  
+Microsoft Word · Microsoft PowerPoint
+
+**Process & Data Modelling:**  
+Lucidchart · Figma
+
+**Data & Analytics:**  
+PostgreSQL · SQL · Tableau
+
+**Technical Specification:**  
+REST APIs · JSON · Postman
+
+**Agile & Delivery:**  
+Jira · Confluence
