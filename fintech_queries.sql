@@ -11,15 +11,32 @@ WITH monthly_revenue AS (
     FROM transactions 
     WHERE routing_status = 'Success'
     GROUP BY DATE_TRUNC('month', execution_time)
+),
+monthly_series AS (
+    SELECT
+        month AS sales_month, COALESCE(mr.net_sales, 0) AS net_sales
+    FROM generate_series(
+        (SELECT DATE_TRUNC('month', MIN(execution_time)) FROM transactions),
+        (SELECT DATE_TRUNC('month', MAX(execution_time)) FROM transactions),
+        INTERVAL '1 month'
+    ) AS month
+    LEFT JOIN monthly_revenue mr
+        ON mr.sales_month = month
 )
 SELECT 
     TO_CHAR(sales_month, 'YYYY-MM') AS calendar_month,
     net_sales,
-    ROUND(LAG(net_sales, 1) OVER (ORDER BY sales_month), 2) AS previous_month_sales,
-    ROUND(((net_sales - LAG(net_sales, 1) OVER (ORDER BY sales_month)) * 100.0) / 
-          NULLIF(LAG(net_sales, 1) OVER (ORDER BY sales_month), 0), 2) AS mom_growth_pct
-FROM monthly_revenue;
-
+    ROUND(LAG(net_sales) OVER (ORDER BY sales_month), 2) AS previous_month_sales,
+    CASE
+        WHEN LAG(net_sales) OVER (ORDER BY sales_month) = 0 THEN NULL
+        ELSE ROUND(
+            ((net_sales - LAG(net_sales) OVER (ORDER BY sales_month)) * 100.0) /
+            NULLIF(LAG(net_sales) OVER (ORDER BY sales_month), 0),
+            2
+        )
+    END AS mom_growth_pct
+FROM monthly_series
+ORDER BY sales_month;
 
 -- [QUERY 02]: MERCHANT ONBOARDING STATUS
 -- Purpose: Audits compliance onboarding bottlenecks by measuring merchant distribution density.
