@@ -93,11 +93,13 @@ SQL analytics, execution evidence, and dashboard output:
 - [SQL Analytics Queries](./fintech_queries.sql)
 - [SQL Execution Results — Query 1](./Fin_query1.png)
 - [SQL Execution Results — Query 2](./Fin_query2.png)
-- [Tableau Dashboard](./Fin_Dash..png)
+- [View Tableau Dashboard](https://public.tableau.com/app/profile/vaibhav.yadav6144/viz/FIN_dash/Dashboard1)
 
 ## Preview
 
 ### Merchant Operations Dashboard
+
+[🔗 View Interactive Tableau Dashboard](https://public.tableau.com/app/profile/vaibhav.yadav6144/viz/FIN_dash/Dashboard1)
 
 ![Merchant Operations Dashboard](./Fin_Dash..png)
 
